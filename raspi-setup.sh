@@ -1,22 +1,22 @@
 #! /bash/sh
 
 # WiFI configuration
-SSID=""
-PSK=""
+# SSID=""
+# PSK=""
 
 # Configure WiFi adapter
-echo "
-network={
-        ssid=\"$SSID\"
-        psk=\"$PSK\"
-        scan_ssid=1
-        key_mgmt=WPA-PSK
-        pairwise=CCMP
-        group=CCMP
-}
-" >> /etc/wpa_supplicant/wpa_supplicant.conf
-ifdown wlan0
-ifup wlan0
+# echo "
+# network={
+#         ssid=\"$SSID\"
+#         psk=\"$PSK\"
+#         scan_ssid=1
+#         key_mgmt=WPA-PSK
+#         pairwise=CCMP
+#         group=CCMP
+# }
+# " >> /etc/wpa_supplicant/wpa_supplicant.conf
+# ifdown wlan0
+# ifup wlan0
 
 # Disable WiFi adapter's power management
 echo "# Disable power management
@@ -24,7 +24,7 @@ options 8192cu rtw_power_mgnt=0
 " >> /etc/modprobe.d/8192cu.conf
 
 # Enable I2C kernel module
-sed -e "s/blacklist i2c-bcm2708/# blacklist i2c-bcm2708/" /etc/modprobe.d/raspi-blacklist.conf > /etc/modprobe.d/raspi-blacklist.conf > 
+sed -e "s/blacklist i2c-bcm2708/# blacklist i2c-bcm2708/" /etc/modprobe.d/raspi-blacklist.conf > /etc/modprobe.d/raspi-blacklist.conf
 echo "i2c-dev
 " >> /etc/modules
 
